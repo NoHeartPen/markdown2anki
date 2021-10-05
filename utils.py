@@ -10,7 +10,7 @@ def replace_formula(formula):
 def replace_cloze(cloze):
     cloze_str = cloze.group()
     cloze_str = cloze_str.replace('**', '') 
-    cloze_str = '{{c1::' + cloze_str + '}}' 
+    cloze_str = '{{c1::<font color="#ff0004">' + cloze_str + '</font>}}'  
     return cloze_str
 
 def replace_picture(picture):
