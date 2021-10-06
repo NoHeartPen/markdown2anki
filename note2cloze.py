@@ -89,4 +89,5 @@ for file in FileList:
         filename=os.path.basename(file)
     with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
         txt_file.writelines(cards)
+os.system("D:\\03Program\\Anki\\anki.exe")
 
