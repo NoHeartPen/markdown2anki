@@ -4,9 +4,13 @@
 
 ## 项目版本
 
+### v0.0.2 2021年10月6日
+
+新增:处理完所有文件后会直接打开Anki程序,但需要自己手动修改note2cloze.py中的'os.system("D:\\03Program\\Anki\\anki.exe")',替换为自己的Anki安装路径,注意:该路径不能包含空格,否者会报错;另外注意使用'\\'表示'\'
+
 ### v0.0.1 2021年10月5日
 
-参考修改说明即可
+参考修改说明部分
 
 # 使用方法
 
@@ -30,8 +34,8 @@
 1. 新增对Anki内显示注音的优化支持 会在有'[]'的汉字前添加一个半角空格,防止错位
    ![](https://markdoen-1304943362.cos.ap-nanjing.myqcloud.com//2021-10-02-07-38-57.png)
    ![](https://markdoen-1304943362.cos.ap-nanjing.myqcloud.com//2021-10-02-07-39-29.png)
-3. 新增对一条字段多次挖空制卡的支持
+2. 新增对一条字段多次挖空制卡的支持
 
 # 鸣谢
 
-感谢原作者提供的源码支持ヾ(≧▽≦*)o
+感谢原作者[L-M-Sherlock](https://github.com/L-M-Sherlock)的[markdown2anki](https://github.com/L-M-Sherlock/markdown2anki)项目提供的源码支持ヾ(≧▽≦*)o
