@@ -19,6 +19,8 @@ for file in FileList:
         for line in lines:
             if '|20' in line:
                 break
+            elif '本文由 [简悦 SimpRead]'in line:
+                continue
             elif line != "\n":
                 line = line.replace('\n','\\')
                 card = line
@@ -59,6 +61,11 @@ for file in FileList:
                 Cloze = re.sub(r'\*\*(.*?)\*\*', utils.replace_cloze, Cloze)
                 card = Cloze+"\n"
                 cards.append(card) 
+            elif '~~' in line:
+                Cloze_SimpRead = line
+                Cloze_SimpRead = re.sub(r'~~(.*?)~~',utils.replace_cloze_SimpRead,Cloze_SimpRead)
+                card = Cloze_SimpRead + "\n"
+                cards.append(card)
             else:
                 continue
     filename=os.path.basename(file)
@@ -90,4 +97,5 @@ for file in FileList:
     with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
         txt_file.writelines(cards)
 os.system("D:\\03Program\\Anki\\anki.exe")
+
 
