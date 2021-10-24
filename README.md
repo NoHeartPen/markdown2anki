@@ -4,6 +4,12 @@
 
 ## 项目版本
 
+### v0.0.3 2021年10月24日
+新增:
+1. 支持快速处理[简悦](https://simpread.pro/)导出的markdown标注(只是去掉了导出文件的开头说明性文字)
+2. 新增~~~~即markdown删除线语法制卡的支持
+3. 修改了挖空部分的细节,凡是挖空的地方都会添加<code><u>下划线</u></code>,便于一张多次挖过空的卡牌上快速找到重点(虽然现在还并不能自动挖空🤣)
+
 ### v0.0.2 2021年10月6日
 
 新增:处理完所有文件后会直接打开Anki程序,但需要自己手动修改note2cloze.py中的'os.system("D:\\03Program\\Anki\\anki.exe")',替换为自己的Anki安装路径,注意:该路径不能包含空格,否者会报错;另外注意使用'\\'表示'\'
@@ -39,5 +45,3 @@
 # 鸣谢
 
 感谢原作者[L-M-Sherlock](https://github.com/L-M-Sherlock)的[markdown2anki](https://github.com/L-M-Sherlock/markdown2anki)项目提供的源码支持ヾ(≧▽≦*)o
-
-111
