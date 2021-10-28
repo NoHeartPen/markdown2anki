@@ -41,7 +41,7 @@ for file in FileList:
         cards = []
         lines = note_file.readlines() 
         for line in lines: 
-            if '![](' in line:
+            if '![' in line:
                 Picture = line
                 Picture = re.sub(r'\!\[\]\((.*?)\)',utils.replace_picture,Picture)
                 card =Picture+"\n"
@@ -51,16 +51,21 @@ for file in FileList:
                 Code = re.sub(r'\`(.*?)\`',utils.replace_code,Code)
                 card = Code+"\n"
                 cards.append(card)
-            elif '['in line:
-                Hiragana = line
-                Hiragana = re.sub(r'\[(.*?)\]',utils.replace_hiragana,Hiragana)
-                card = Hiragana+"\n"
-                cards.append(card)
             elif '**' in line:
                 Cloze = line
                 Cloze = re.sub(r'\*\*(.*?)\*\*', utils.replace_cloze, Cloze)
                 card = Cloze+"\n"
                 cards.append(card) 
+            elif '](' in line:
+                Link = line
+                Link = re.sub(r'\[(.*?)\)',utils.replace_link,Link)
+                card = Link+"\n"
+                cards.append(card)
+            elif '['in line:
+                Hiragana = line
+                Hiragana = re.sub(r'\[(.*?)\]',utils.replace_hiragana,Hiragana)
+                card = Hiragana+"\n"
+                cards.append(card)
             elif '~~' in line:
                 Cloze_SimpRead = line
                 Cloze_SimpRead = re.sub(r'~~(.*?)~~',utils.replace_cloze_SimpRead,Cloze_SimpRead)
