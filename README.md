@@ -4,10 +4,19 @@
 
 ## 项目版本
 
-### v0.0.3 2021年10月24日
+## v0.0.4 2021年10月28日
+
+优化:
+1. 修改判断Markdown图片语法的条件,现在插入图片时可以添加说明文字了;
+2. 调整判断条件的顺序,在包含']('时会将之识别为Markdown超链接语法,而不是Anki注音的语法;
 新增:
-1. 支持快速处理[简悦](https://simpread.pro/)导出的markdown标注(只是去掉了导出文件的开头说明性文字)
-2. 新增~~~~即markdown删除线语法制卡的支持
+1. 支持将Markdown的超链接语法转为HTML的超链接语法
+
+### v0.0.3 2021年10月24日
+
+新增:
+1. 支持快速处理[简悦](https://simpread.pro/)导出的Markdown标注(只是去掉了导出文件的开头说明性文字)
+2. 新增~~~~即Markdown删除线语法制卡的支持
 3. 修改了挖空部分的细节,凡是挖空的地方都会添加<code><u>下划线</u></code>,便于一张多次挖过空的卡牌上快速找到重点(虽然现在还并不能自动挖空🤣)
 
 ### v0.0.2 2021年10月6日
@@ -26,10 +35,10 @@
 
 # 修改说明
 
-1. 新增对markdown部分语法转html语法的支持.
- - 支持将markdown的双引号''语法转换为html'<code></code>'
- - 支持将markdown的[]()转换为<img src= >
-2. 在原来的基础上,新增了利用[markdown-img](https://github.com/icexmoon/markdown-img)项目将图片上传至图床,方便跨设备快速同步,如果你不熟悉该项目,可以参考作者介绍该项目的文章[VSCode内Markdown图床上传](https://www.yuque.com/noheartpen/gur8p4/rkop5l)。
+1. 新增对Markdown部分语法转html语法的支持.
+ - 支持将Markdown的双引号''语法转换为html'<code></code>'
+ - 支持将Markdown的[]()转换为<img src= >
+2. 在原来的基础上,新增了利用[Markdown-img](https://github.com/icexmoon/markdown-img)项目将图片上传至图床,方便跨设备快速同步,如果你不熟悉该项目,可以参考作者介绍该项目的文章[VSCode内Markdown图床上传](https://www.yuque.com/noheartpen/gur8p4/rkop5l)。
 3. 新增对同时转换多份笔记的支持
 4. 新增对多字段导入的支持: 中间有一行空行时(即书写完一条笔记后，要按2次回车键)才会被认为是2条笔记。另外，默认最多支持字段数是4，请结合自己的习惯修改
 5. 修改后的版本更适合日常在电脑端(VSCode)和利用md记笔记的习惯，然后利用AnkiDrod复习的Anki重度使用者
