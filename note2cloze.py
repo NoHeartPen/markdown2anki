@@ -2,6 +2,7 @@ import re
 import utils
 import os
 from pathlib import Path
+import pyperclip
 
 #将笔记中的图片上传到图床
 cmd = "python -m markdown_img "
@@ -46,21 +47,24 @@ for file in FileList:
                 Picture = re.sub(r'\!\[\]\((.*?)\)',utils.replace_picture,Picture)
                 card =Picture+"\n"
                 cards.append(card)
-            elif '`' in line:
-                Code = line
-                Code = re.sub(r'\`(.*?)\`',utils.replace_code,Code)
-                card = Code+"\n"
-                cards.append(card)
-            elif '**' in line:
-                Cloze = line
-                Cloze = re.sub(r'\*\*(.*?)\*\*', utils.replace_cloze, Cloze)
-                card = Cloze+"\n"
-                cards.append(card) 
             elif '](' in line:
                 Link = line
                 Link = re.sub(r'\[(.*?)\)',utils.replace_link,Link)
                 card = Link+"\n"
                 cards.append(card)
+            elif '`' in line:
+                Code = line
+                Code = re.sub(r'\`(.*?)\`',utils.replace_code,Code)
+                card = Code+"\n"
+                cards.append(card)
+            else:
+                continue
+        for line in lines: 
+            if '**' in line:
+                Cloze = line
+                Cloze = re.sub(r'\*\*(.*?)\*\*', utils.replace_cloze, Cloze)
+                card = Cloze+"\n"
+                cards.append(card) 
             elif '['in line:
                 Hiragana = line
                 Hiragana = re.sub(r'\[(.*?)\]',utils.replace_hiragana,Hiragana)
@@ -101,6 +105,7 @@ for file in FileList:
         filename=os.path.basename(file)
     with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
         txt_file.writelines(cards)
+pyperclip.copy(path)
 os.system("D:\\03Program\\Anki\\anki.exe")
 
 
