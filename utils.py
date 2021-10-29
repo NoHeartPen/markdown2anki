@@ -1,5 +1,6 @@
 import os
 from re import I
+import re
 def replace_formula(formula):
     formula_str = formula.group() 
     formula_str = formula_str.replace('{{', '{ {') 
@@ -43,3 +44,10 @@ def replace_Bold(Bold):
     Bold_str = Bold.group()
     Bold_str = "<b>"+Bold_str.replace('**', '')+"</b>" 
     return Bold_str
+
+def replace_link(Link):
+    Link_str = Link.group()
+    Link_str_title = re.findall(r"\[(.*?)\]",Link_str)[0]
+    Link_str_site = re.findall(r"\((.*?)\)",Link_str)[0]
+    Link_str = '<a href={1}>{0}</a>'.format(Link_str_title,Link_str_site)
+    return Link_str
