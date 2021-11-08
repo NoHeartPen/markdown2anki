@@ -51,3 +51,8 @@ def replace_link(Link):
     Link_str_site = re.findall(r"\((.*?)\)",Link_str)[0]
     Link_str = '<a href={1}>{0}</a>'.format(Link_str_title,Link_str_site)
     return Link_str
+
+def space_hurigana(space):
+    space_hurigana= space.group()
+    space_hurigana = ' '+ space_hurigana
+    return space_hurigana

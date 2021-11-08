@@ -114,6 +114,7 @@ for file in FileList:
     filename=os.path.basename(file)
     with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
         txt_file.writelines(cards)
+
 # 处理一行中同时出现[]、**、~~三种制卡语法的行，一般是很久以后复习时又有了新的发现，写笔记很少会分的这么细
 path = os.getcwd() + '\Anki'+'\\'
 p = Path(path) #初始化构造Path对象
@@ -155,7 +156,8 @@ for file in FileList:
                     colze=re.sub(r'\d{1}',str(number),colze,1)
                     number = int (number)
                 card = colze+"\n"
-                cards.append(card) 
+                cards.append(card)
+
             else:
                 continue
     filename=os.path.basename(file)
@@ -199,7 +201,7 @@ for file in FileList:
         cards = []
         lines = note_file.readlines() 
         for line in lines: 
-            if "[{{c"in line:
+            if "[{{c2"in line:
                 colze = line
                 colze=re.sub(r'\[\{\{c\d{1}',"[{{c1",colze)
                 card = colze+"\n"
@@ -212,7 +214,55 @@ for file in FileList:
     filename=os.path.basename(file)
     with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
         txt_file.writelines(cards)
+
+
+# 解决注音假名偏移问题
+path = os.getcwd() + '\Anki'+'\\'
+p = Path(path) #初始化构造Path对象
+FileList=list(p.glob("**/*.txt"))
+for file in FileList:
+    with open(file, 'r',encoding='UTF-8') as note_file:
+        cards = []
+        lines = note_file.readlines() 
+        for line in lines: 
+            if '[{{' in line:
+                hurigana = line
+                hurigana = re.sub(r'\w\[\{\{', utils.space_hurigana, hurigana)
+                card = hurigana+"\n"
+                cards.append(card)
+            elif "{{" in line:
+                card = line + "\n"
+                cards.append(card)
+            else:
+                continue
+    filename=os.path.basename(file)
+    with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
+        txt_file.writelines(cards)
+
+# 更改分割字段
+path = os.getcwd() + '\Anki'+'\\'
+p = Path(path) #初始化构造Path对象
+FileList=list(p.glob("**/*.txt"))
+for file in FileList:
+    with open(file, 'r',encoding='UTF-8') as note_file:
+        cards = []
+        lines = note_file.readlines() 
+        for line in lines: 
+            if '\\' in line:
+                hurigana = line
+                hurigana = re.sub(r'\\', r'\t', hurigana)
+                card = hurigana+"\n"
+                cards.append(card)
+            else:
+                continue
+    filename=os.path.basename(file)
+    with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
+        txt_file.writelines(cards)
+
 pyperclip.copy(path)
 os.system("D:\\03Program\\Anki\\anki.exe")
+
+
+
 
 
