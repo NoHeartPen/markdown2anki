@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import pyperclip
 import shutil
+import pyautogui
 
 #将笔记中的图片上传到图床
 cmd = "python -m markdown_img "
@@ -261,6 +262,8 @@ for file in FileList:
 
 pyperclip.copy(path)
 os.system("D:\\03Program\\Anki\\anki.exe")
+pyautogui.hotkey('y')
+
 
 
 
