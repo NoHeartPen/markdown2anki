@@ -5,8 +5,6 @@ __pycache__/
 
 #Temp/
 
-modles/
-
 # C extensions
 *.so
 
