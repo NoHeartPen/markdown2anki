@@ -1,11 +1,15 @@
+# 该模块用于实现多次挖空
 import re
-import utils
 import os
 from pathlib import Path
-import pyperclip
-import shutil
 
-# 调整文件语法 将markdown语法替换为Html语法
+def replace_cloze(cloze):
+    cloze_str = cloze.group()
+    cloze_str = cloze_str.replace('**', '') 
+    cloze_str = '{{c1::<u>' + cloze_str + '</u>}}'  
+    return cloze_str
+
+# 将markdown语法替换为Anki挖空语法
 path = os.getcwd()
 p = Path(path) #初始化构造Path对象
 FileList=list(p.glob("**/*.txt"))
@@ -16,7 +20,7 @@ for file in FileList:
         for line in lines: 
             if '**' in line:
                 Cloze = line
-                Cloze = re.sub(r'\*\*(.*?)\*\*', utils.replace_cloze, Cloze)
+                Cloze = re.sub(r'\*\*(.*?)\*\*', replace_cloze, Cloze)
                 card = Cloze+"\n"
                 cards.append(card)
             else:
@@ -27,7 +31,7 @@ for file in FileList:
 
 # 调整挖空次数
 path = os.getcwd()
-p = Path(path) #初始化构造Path对象
+p = Path(path) 
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8') as note_file:
