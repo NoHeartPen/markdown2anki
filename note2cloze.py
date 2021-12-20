@@ -45,7 +45,7 @@ for file in FileList:
 
 # 调整文件语法 将markdown语法替换为Html语法
 path = os.getcwd()
-p = Path(path) #初始化构造Path对象
+p = Path(path) 
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8') as note_file:
