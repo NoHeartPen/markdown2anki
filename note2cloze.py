@@ -20,7 +20,7 @@ for file in FileList:
 
 #将笔记转换为Anki支持的txt格式
 path = os.getcwd()
-p = Path(path) #初始化构造Path对象
+p = Path(path) 
 FileList=list(p.glob("**/*.md"))
 for file in FileList:
     with open(file, 'r', encoding='UTF-8') as note_file:
