@@ -10,7 +10,7 @@ import pyautogui
 cmd = "python -m markdown_img "
 os.system(cmd)
 path = os.getcwd() + '\markdown_img'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path)
 FileList=list(p.glob("**/*.md"))
 for file in FileList:
     oldname = os.path.abspath(file)
@@ -20,7 +20,7 @@ for file in FileList:
 
 #将笔记转换为Anki支持的txt格式
 path = os.getcwd()
-p = Path(path) #初始化构造Path对象
+p = Path(path)
 FileList=list(p.glob("**/*.md"))
 for file in FileList:
     with open(file, 'r', encoding='UTF-8') as note_file:
@@ -90,7 +90,7 @@ for file in FileList:
 
 # 处理一行中同时出现[]、**2种制卡语法的行
 path = os.getcwd() + '\Anki'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path)
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8')as note_file:
@@ -118,7 +118,7 @@ for file in FileList:
 
 # 处理一行中同时出现[]、**、~~三种制卡语法的行，一般是很久以后复习时又有了新的发现，写笔记很少会分的这么细
 path = os.getcwd() + '\Anki'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path) 
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8')as note_file:
@@ -141,7 +141,7 @@ for file in FileList:
 
 # 调整挖空次数
 path = os.getcwd() + '\Anki'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path)
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8') as note_file:
@@ -167,7 +167,7 @@ for file in FileList:
 
 #补齐Anki字段数,由于自己习惯习惯了4条字段,所以用于分割字段的反斜杠上限就是3个
 path = os.getcwd() + '\Anki'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path)
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8') as note_file:
@@ -195,7 +195,7 @@ for file in FileList:
 
 # 解决 注音的部分被也被多次挖空
 path = os.getcwd() + '\Anki'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path) 
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8') as note_file:
@@ -219,7 +219,7 @@ for file in FileList:
 
 # 解决注音假名偏移问题
 path = os.getcwd() + '\Anki'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path)
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8') as note_file:
@@ -242,7 +242,7 @@ for file in FileList:
 
 # 更改分割字段
 path = os.getcwd() + '\Anki'+'\\'
-p = Path(path) #初始化构造Path对象
+p = Path(path) 
 FileList=list(p.glob("**/*.txt"))
 for file in FileList:
     with open(file, 'r',encoding='UTF-8') as note_file:
