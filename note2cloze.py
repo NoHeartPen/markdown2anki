@@ -120,7 +120,8 @@ for file in FileList:
     with open('./Anki/'+filename, 'w', encoding='UTF-8') as txt_file:
         txt_file.writelines(cards)
 
-# 处理一行中同时出现[]、**、~~三种制卡语法的行，一般是很久以后复习时又有了新的发现，写笔记很少会分的这么细
+# 处理一行中同时出现[]、**、
+# 三种制卡语法的行，一般是很久以后复习时又有了新的发现，写笔记很少会分的这么细
 path = os.getcwd() + '\Anki'+'\\'
 p = Path(path) 
 FileList=list(p.glob("**/*.txt"))
